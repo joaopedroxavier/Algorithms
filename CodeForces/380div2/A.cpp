@@ -20,30 +20,27 @@ typedef stack<int> sti;
 const int N=1e6;
 
 int main(){
-	//code here
 	string speech, ans, filler = "ogo";
 	int n;
 	cin >> n;
 	cin >> speech;
 	int p=0;
 	while(strlen(speech.c_str())){
-					if(speech.find(filler)){
-									ans = ans + speech[0];
-									speech.erase(0,1);
-
-					}
-					else{
-									ans = ans + "***";
-									p+=1;
-									while(!speech.find(filler)){
-													filler=filler+"go";
-													p+=2;
-									}
-									speech.erase(0,p);
-									p=0;
-									filler="ogo";
-
-					}
+		if(speech.find(filler)){
+			ans = ans + speech[0];
+			speech.erase(0,1);
+		}
+		else{
+			ans = ans + "***";
+			p+=1;
+			while(!speech.find(filler)){
+				filler=filler+"go";
+				p+=2;
+			}
+			speech.erase(0,p);
+			p=0;
+			filler="ogo";
+		}
 	}
 	cout << ans << endl;
 	return 0;

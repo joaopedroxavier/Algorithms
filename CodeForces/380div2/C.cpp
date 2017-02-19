@@ -34,7 +34,6 @@ pair<ll,ll> car[N];
 ll gas[N], dist[N];
 ll n, k, s, t;
 int main(){
-	//code here
 	ll p1, p2, m, aux;
 	ll minm;
 	scanf("%lli %lli %lli %lli", &n, &k, &s, &t);

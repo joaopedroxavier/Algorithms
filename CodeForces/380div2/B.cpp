@@ -21,7 +21,6 @@ const int N=2e3;
 
 int field[N][N], cond[N][N];
 int main(){
-	//code here
 	int n, m;
 	ll sum=0;
 	scanf("%d %d ", &n, &m);
