@@ -1,7 +1,8 @@
 //
-//														(A - Interview with Oleg)
+//	(A - Interview with Oleg)
 //	Codeforces Round #380 Div.2 (Based on Technocup 2017 - Elimination Round 2)
-//					source:	http://codeforces.com/contest/738/problem/A
+//	source:	http://codeforces.com/contest/738/problem/A
+//
 #include <bits/stdc++.h>
 
 using namespace std;

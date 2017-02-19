@@ -1,7 +1,7 @@
 //
-//															(C - Road to Cinema)
+//	(C - Road to Cinema)
 //	CodeForces Round #380 Div.2 (Based on Technocup 2017 - Elimination Round 2)
-//				source: http://codeforces.com/contest/738/problem/C
+//	source: http://codeforces.com/contest/738/problem/C
 //
 #include <bits/stdc++.h>
 

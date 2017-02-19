@@ -1,7 +1,7 @@
 //
-//																(B - Spotlights)
+//	(B - Spotlights)
 //	CodeForces Round #380 Div.2 (Based on Technocup 2017 - Elimination Round 2)
-//				source:	http://codeforces.com/contest/738/problem/B
+//	source:	http://codeforces.com/contest/738/problem/B
 //
 #include <bits/stdc++.h>
 
