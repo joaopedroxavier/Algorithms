@@ -26,8 +26,8 @@ int main(){
 	for(int i=1;i<=n;++i) scanf("%d", &mood[i]);
 	for(int i=0;i<m;++i)	scanf("%d %d", &p1[i], &p2[i]);
 	for(int i=0;i<m;++i){
-					for(int j=p1[i];j<=p2[i];++j) (happ[i]+=mood[j]);
-					if(happ[i]>=0) ans+=happ[i];
+		for(int j=p1[i];j<=p2[i];++j) (happ[i]+=mood[j]);
+		if(happ[i]>=0) ans+=happ[i];
 	}
 	printf("%d\n", ans);
 	return 0;
