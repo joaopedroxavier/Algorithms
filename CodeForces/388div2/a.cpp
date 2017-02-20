@@ -1,5 +1,11 @@
 #include <bits/stdc++.h>
 
+// Summary:
+// Author : Luciano Barreira
+// Lang : GNU C++11
+// Time : 31ms
+// Memory : 2100 KB
+
 using namespace std;
 
 int main (){
@@ -13,3 +19,4 @@ int main (){
   cout << (n%2?3:2) << endl;
   return 0;
 }
+
