@@ -7,8 +7,8 @@
 
 using namespace std;
 
-#define make_pair mp
-#define push_back pb
+#define mp make_pair
+#define pb push_back
 
 typedef long long ll;
 typedef vector<int> vi;
