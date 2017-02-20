@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct pt{
+  int x,y;
+};
+
+int main (){
+  pt points[3];
+  for (int i = 0; i < 3 ; ++i){
+    scanf ("%d %d", &points[i].x, &points[i].y);
+  }
+  cout << 3 << endl;
+  for (int i = 0 ; i < 3 ; ++i){
+    cout << (points[(i+1)%3].x + points[(i+2)%3].x - points[i].x) << " ";
+    cout << (points[(i+1)%3].y + points[(i+2)%3].y - points[i].y) << endl;
+  }
+  return 0;
+}
