@@ -51,11 +51,7 @@ int main(){
 		for(int i=1;i<=r;++i){
 			cin >> m;
 			for(unsigned j=0;j<m.size();++j) if(m[j] == '#') lab[i][j+1] = 1;
-		}/*
-		for(int i=0;i<r+2;++i){
-			for(int j=0;j<c+2;++j) cout << lab[i][j];
-			cout << endl;
-		}*/
+		}
 		ii w;
 		for(int i=1;i<=r;++i) for(int j=1;j<=c;++j) if(!lab[i][j]) w = mp(i,j);
 		ii u = find_longest(w.first,w.second);

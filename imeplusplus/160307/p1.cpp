@@ -50,17 +50,11 @@ int main(){
 			e[mp(u,v)] = 1;
 			e[mp(v,u)] = 1;
 		}
-	}/*
-	for(int i=1;i<=n; ++i){
-		cout << i << ": ";
-		for(int j : adj[i]) cout << j << ' ';
-		cout << endl;
-	}*/
+	}
 	u = find_longest(1);
 	memset(vis,0,sizeof(vis));
 	v = find_longest(u);
 	memset(vis,0,sizeof(vis));
-	//cout << u << ' ' << v << endl;
 	bfs.push(v);
 	vis[v]=1;
 	while(!bfs.empty()){

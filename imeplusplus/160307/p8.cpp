@@ -44,18 +44,11 @@ int main(){
 			if(!e[u][v]){
 				adj[u].pb(v);
 				adj[v].pb(u);
-//				cout << u << ' ' << v << endl;
 				e[u][v] = 1;
 				e[v][u] = 1;
 			}
-		}/*
-		for(int i=1;i<=n;++i){
-			cout << i << ": " ;
-			for(int v : adj[i]) cout << v << ' ';
-			cout << endl;
-		}*/
+		}
 		for(int i=1;i<=n;++i) if(!vis[i]) dfs(i,1);
-//		for(int i=1;i<=n;++i) cout << vis[i] << ' ';
 		cout << "Scenario #" << k+1 << ":" << endl << ((ans) ? "No suspicious bugs found!" : "Suspicious bugs found!") << endl;
 	}
 	return 0;

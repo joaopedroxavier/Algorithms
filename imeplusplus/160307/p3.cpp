@@ -49,18 +49,7 @@ int main(){
 		cin >> u >> v >> wt;
 		adj[u].pb(v);
 		w[u][v] = wt;
-	}/*
-	for(int i=1;i<=n;++i){
-		cout << i << ": ";
-		for(int j : adj[i]) cout << j << ' ';
-		cout << endl;
 	}
-	for(int i=1;i<=n;++i){
-		for(int j=1;j<=n;++j){
-			cout << w[i][j] << ' ';
-		}
-		cout << endl;
-	}*/
 	for(int i=1;i<=n;++i)  if(sh_path(i,e)<=t) ans++;
 	cout << ans << endl;
 }

@@ -47,15 +47,7 @@ int main(){
 		}
 	}
 	adj[0].pb(1);
-	dfs(0,1);/*
-	for(int i=1;i<=n;++i){
-		cout << i << ":" << endl;
-		for(int j : adj[i]){
-			cout << j << ' ';
-		}
-		cout << endl;
-	}*/
-	for(int i=1;i<=n;++i)	if(!vis[i]) ans = 0;
+	dfs(0,1);	for(int i=1;i<=n;++i)	if(!vis[i]) ans = 0;
 	cout << ((ans) ? "YES" : "NO") << endl;
 	return 0;
 }
