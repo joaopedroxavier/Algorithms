@@ -24,7 +24,7 @@ const int N=1e5;
 const int INF=0x3f3f3f3f;
 
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	string s;
 	cin >> s;
 	vector<int> help;

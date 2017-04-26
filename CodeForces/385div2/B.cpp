@@ -26,7 +26,7 @@ const int INF=0x3f3f3f3f;
 char grid[N][N];
 
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	int n, m, xfirst=INF, yfirst=INF, xlast=0, ylast=0;
 	bool ans = true;
 	cin >> n >> m;

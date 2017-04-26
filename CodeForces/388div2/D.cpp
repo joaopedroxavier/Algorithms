@@ -31,7 +31,7 @@ set<ii> best_offer;
 vi offers[N];;
 vi v;
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	int n, q;
 	cin >> n;
 	for(int i=0;i<n;++i){

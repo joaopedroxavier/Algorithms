@@ -44,7 +44,7 @@ int dfs2(int u){
 }
 
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	int n, m, k;
 	ll cont1=0, cont2=0, maxm1=0, maxm2=0, ans=0;
 	cin >> n >> m >> k;

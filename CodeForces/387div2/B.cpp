@@ -29,7 +29,7 @@ const int INF=0x3f3f3f3f;
 
 int a, g, c, t;
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	string gen;
 	int n;
 	cin >> n;

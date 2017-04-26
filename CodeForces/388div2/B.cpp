@@ -39,7 +39,7 @@ ii next(){
 }
 
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	for(int i=0;i<3;++i) cin >> pt[i].first >> pt[i].second;
 	cout << 3 << endl;
 	for(int i=0;i<3;++i){

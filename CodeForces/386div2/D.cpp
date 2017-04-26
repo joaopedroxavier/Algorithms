@@ -25,7 +25,7 @@ const int INF=0x3f3f3f3f;
 
 char tea[] = {'G', 'B'};
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	ll n, k, a, b;
 	cin >> n >> k >> a >> b;
 	if(a>(b+1)*k or b>(a+1)*k) cout << "NO" << endl;

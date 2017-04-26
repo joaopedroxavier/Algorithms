@@ -28,7 +28,7 @@ const int MOD=1e9+7;
 const int INF=0x3f3f3f3f;
 
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	int n, ans;
 	cin >> n;
 	for(int i=1;i*i<=n;++i) if (n%i == 0) ans = i;

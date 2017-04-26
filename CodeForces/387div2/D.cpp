@@ -31,7 +31,7 @@ int temp[N];
 vi winter;
 vector<int> len;
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	int n, k;
 	cin >> n >> k;
 	for(int i=1;i<=n;++i){

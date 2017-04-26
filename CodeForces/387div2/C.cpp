@@ -29,7 +29,7 @@ const int INF=0x3f3f3f3f;
 
 int server[N];
 int main(){
-	ios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
 	int n, q;
 	cin >> n >> q;
 	for(int i=0;i<q;++i){
