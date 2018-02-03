@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define topper top //XDDDDDDD
+
+#define mp make_pair
+#define pb push_back
+#define db(x) cerr << #x << " == " <<  x << endl;
+#define _ << " " <<
+
+typedef long long ll;
+typedef vector<int> vi;
+typedef pair<int,int> ii;
+
+const long double EPS = 1e-9;
+const int N=1e5+5;
+const int MOD=1e9+7;
+const int INF=0x3f3f3f3f;
+
+string p, s;
+
+int main(){
+  cin >> p >> s;
+
+  string ans;
+  ans = ans + p[0];
+  int p1 = 1;
+  while(p[p1] < s[0] and p1 < (int) p.size()) {
+    ans = ans + p[p1];
+    p1++;
+  }
+  ans = ans + s[0];
+
+  cout << ans << endl;
+
+	return 0;
+}
+
