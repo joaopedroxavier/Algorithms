@@ -12,126 +12,62 @@ using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int,int> ii;
-typedef pair<ll, ll> pll;
 
 const long double EPS = 1e-9;
 const int N=1e5+5;
 const int MOD=1e9+7;
 const int INF=0x3f3f3f3f;
+const ll LINF=0x3f3f3f3f3f3f3f3f;
 
 int n, m;
-map<int, int> cur_tree;
-map<int, set<int>> tree;
-map<int, multiset<ll>> available;
-set<ll> leaves;
-multiset<pll> trees_cost;
-ll totalcost, cst[N];
+ll cc, mi[N], best[N], vis[N], cst[N], ord[N];
+set<int> thebest;
+vi adj[N];
 
-void merge(int a, int b, bool cut) {
-  //printf("merging trees rooted in %d and %d\n", a, b);
-  if(tree[a].size() > tree[b].size()) swap(a, b);
-
-  for(auto i : tree[a]) {
-    cur_tree[i] = b;
-    tree[b].insert(i);
+void dfs(int u) {
+  vis[u] = cc;
+  if(cst[u] < mi[cc]) {
+    best[cc] = u;
+    mi[cc] = cst[u];
   }
-
-  //printf("nodes in the tree %d were passed to tree %d\n", a, b);
-  //printf("tree %d has: ", b);
-  /*
-  for(auto i : tree[b]) {
-    printf("%d ", i);
-  }
-  */
-
-  ll bckb = *(available[b].begin()), bcka = *(available[a].begin());
-  //printf("cost: %lld\n", bcka + bckb);
-
-  if(cut) totalcost += bcka + bckb;
-
-  if(cut) { available[a].erase(available[a].begin()), available[b].erase(available[b].begin()); }
-
-  for(auto i : available[a]) {
-    available[b].insert(i);
-  }
-
-  tree.erase(a);
-  available.erase(a);
-  trees_cost.erase(mp(bcka, a));
-  trees_cost.erase(mp(bckb, b));
-  if(cut and available[b].empty()) tree.erase(b), available.erase(b);
-
-  if(tree.count(b)) {
-    trees_cost.insert(mp(*available[b].begin(), b));
-  }
+  for(int v : adj[u]) if(vis[v] != cc) dfs(v);
 }
 
 int main(){
   scanf("%d %d", &n, &m);
-  if(n == 1) return printf("0\n"), 0;
 
-  for(int i=0; i<n; i++) {
-    scanf("%lld", &cst[i]);
-    available[i].insert(cst[i]);
-    tree[i].insert(i);
-    cur_tree[i] = i;
-    trees_cost.insert(mp(cst[i], i));
-  }
+  for(int i=0; i<n; i++) scanf("%lld", &cst[i]), mi[i] = LINF, ord[i] = i;
+
+  memset(vis, -1, sizeof vis);
 
   for(int i=0; i<m; i++) {
     int u, v;
     scanf("%d %d", &u, &v);
-    u = cur_tree[u], v = cur_tree[v];
-    merge(u, v, false);
+    adj[u].pb(v), adj[v].pb(u);
   }
 
-  /*
-  printf("I'm calculating...\n");
-  printf("my forest is:\n");
-  for(auto i : tree) {
-    printf("- a tree rooted on %d and with available nodes: ", i.first);
-    for(auto j : i.second) printf("%d ", j);
-    printf("\n");
-  }
-  */
-
-  for(auto i : tree) {
-    if(i.second.size() == 1) leaves.insert(i.first);
+  for(int i=0; i<n; i++) if(vis[i] == -1) {
+    dfs(i);
+    cc++;
   }
 
-  for(auto i : leaves) tree.erase(i);
+  for(int i=0; i<cc; i++) thebest.insert(best[i]);
 
-  while(tree.size() > 1) {
-    /*
-    printf("In this step, the following nodes are available: ");
-    for(auto i : tree) {
-      for(auto j : available[i.first]) {
-        printf("%d ", j);
-      }
-    }
-    printf("\n");
-    */
-    auto it = trees_cost.begin();
-    pll p1 = *it;
-    it++;
-    pll p2 = *it;
+  if(2*(cc-1) > n) return printf("Impossible\n"), 0;
 
-    ll a = p1.second, b = p2.second;
-    if(available[a].empty() or available[b].empty()) return printf("Impossible\n"), 0;
-    merge(a, b, true);
+  sort(mi, mi+cc);
+  sort(ord, ord+n, [](int i, int j) { return cst[i] < cst[j]; });
+
+  ll ans = 0;
+  ll need = 2*(cc-1);
+  for(int i=0; i<cc; i++) if(need) ans += mi[i], need--;
+  for(int i=0; i<n; i++) if(need > 0 and !thebest.count(ord[i])){
+    need--;
+    ans += cst[ord[i]];
   }
 
-  if(tree.empty()) return printf("Impossible\n"), 0;
-  int root = (tree.begin())->first;
-  for(auto i : leaves) {
-    if(available[root].size()) {
-      ll p = *available[root].begin();
-      totalcost += p + cst[i];
-    }
-    else return printf("Impossible\n"), 0;
-  }
-
-  printf("%lld\n", totalcost);
+  printf("%lld\n", ans);
 
   return 0;
 }
+
