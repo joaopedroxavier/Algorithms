@@ -34,21 +34,13 @@ struct ManhattanLine {
     return (x - x1) * (y2 - y1) == (y - y1) * (x2 - x1) and between(x);
   }
 
-  bool between(ll x) {
-    return x1 <= x and x <= x2;
-  }
-
-  bool operator<(ManhattanLine m) const { return mp(x1, y1) == mp(m.x1, m.y1) ? mp(x2, y2) < mp(m.x2, m.y2) : mp(x1, y1) < mp(m.x1, m.y1); }
+  bool between(ll x)               const { return x1 <= x and x <= x2; }
+  bool operator<(ManhattanLine m)  const { return mp(x1, y1) == mp(m.x1, m.y1) ? mp(x2, y2) < mp(m.x2, m.y2) : mp(x1, y1) < mp(m.x1, m.y1); }
   bool operator!=(ManhattanLine m) const { return mp(x1, y1) != mp(m.x1, m.y1) and mp(x2, y2) != mp(m.x2, m.y2); }
 
-  void print() {
-    printf("Line from (%lld, %lld) to (%lld, %lld)\n", x1, y1, x2, y2);
-  }
 };
 
 ManhattanLine intersect(ManhattanLine m1, ManhattanLine m2) {
-  //printf("Intersecting: \n");
-  //m1.print(); m2.print();
   if(m1.type == 0) {
     return m2.inside(m1.x1, m1.y1) ? ManhattanLine(m1.x1, m1.y1, m1.x1, m1.y1) : ManhattanLine(INF, INF, INF, INF);
   }
@@ -89,13 +81,6 @@ int main(){
     ManhattanLine m3 = ManhattanLine(x-d, y, x, y-d);
     ManhattanLine m4 = ManhattanLine(x, y-d, x+d, y);
 
-    /*
-    printf("line m1 starting with (%lld, %lld) and ending in (%lld, %lld)\n", m1.x1, m1.y1, m1.x2, m1.y2);
-    printf("line m2 starting with (%lld, %lld) and ending in (%lld, %lld)\n", m2.x1, m2.y1, m2.x2, m2.y2);
-    printf("line m2 starting with (%lld, %lld) and ending in (%lld, %lld)\n", m3.x1, m3.y1, m3.x2, m3.y2);
-    printf("line m2 starting with (%lld, %lld) and ending in (%lld, %lld)\n", m4.x1, m4.y1, m4.x2, m4.y2);
-    */
-
     if(i == 0) {
       lines.insert(m1);
       lines.insert(m2);
@@ -120,13 +105,6 @@ int main(){
 
       lines = currentlines;
     }
-    
-    /*
-    printf("current manhattan lines: \n");
-    for(auto m : lines) {
-      printf("a line starting with (%lld, %lld) and ending in (%lld, %lld)\n", m.x1, m.y1, m.x2, m.y2);
-    }
-    */
   }
 
   set<pair<ll, ll>> candidates;
